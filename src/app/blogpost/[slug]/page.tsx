@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import React, { useState, useEffect } from 'react'
-import { client } from '@/sanity/lib/client'
-import { Blog } from '@/app/blogpage/page'
+import React, { useState, useEffect } from 'react';
+import { client } from '@/sanity/lib/client';
+import { Blog } from '@/app/blogpage/page';
 
 // Define the structure of a single comment
 interface Comment {
@@ -12,10 +12,11 @@ interface Comment {
 
 interface Params {
   params: {
-    slug: string
-  }
+    slug: string;
+  };
 }
 
+// Async server-side function to fetch blog data
 const BlogPost = async ({ params }: Params) => {
   const { slug } = params;
 
@@ -44,12 +45,11 @@ const BlogPost = async ({ params }: Params) => {
 
 // This is the client-side component for managing comments and rendering the blog content
 const ClientSideContent = ({ data }: { data: Blog }) => {
-  // Type the comments state explicitly
   const [comment, setComment] = useState<string>('');
   const [comments, setComments] = useState<Comment[]>(data.comments || []);
 
   useEffect(() => {
-    // You can add any client-side logic here, e.g., fetching comments after mount.
+    // Add any client-side logic if necessary
   }, []);
 
   const handleCommentChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -64,7 +64,7 @@ const ClientSideContent = ({ data }: { data: Blog }) => {
       author: 'Anonymous', // Replace with actual user info if needed
     };
 
-    // Add the new comment to the state (or send it to a backend/CMS)
+    // Update comments locally (you can replace this with an API call)
     setComments([...comments, newComment]);
 
     setComment('');
