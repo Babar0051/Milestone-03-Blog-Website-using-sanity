@@ -1,16 +1,11 @@
-import createImageUrlBuilder from '@sanity/image-url';
-import { SanityImageSource } from '@sanity/image-url/lib/types/types';
-import { dataset, projectId } from '../env';
+import createImageUrlBuilder from "@sanity/image-url";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { dataset, projectId } from "../env";
 
-// Create a URL builder instance
-const builder = createImageUrlBuilder({
-  projectId: projectId || '', // Ensure projectId is a non-empty string
-  dataset: dataset || '', // Ensure dataset is a non-empty string
-});
+if (!projectId || !dataset) {
+  throw new Error("Sanity project ID or dataset is missing in the environment.");
+}
 
-/**
- * Generates the image URL for a given source.
- */
-export const urlFor = (source: SanityImageSource) => {
-  return builder.image(source);
-};
+const builder = createImageUrlBuilder({ projectId, dataset });
+
+export const urlFor = (source: SanityImageSource) => builder.image(source);
