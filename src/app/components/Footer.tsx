@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -6,12 +7,17 @@ const Footer = () => {
       <footer className="bg-zinc-800 text-white font-sans">
         <div className="container px-5 py-8 mx-auto flex items-center flex-wrap sm:flex-row flex-col">
           {/* Logo Section */}
-          <a className="flex title-font font-medium items-center justify-center sm:justify-start text-white mb-4 sm:mb-0">
-            <div className="w-10 h-10 text-white p-2 bg-white rounded-full">
-              <img
+          <a
+            className="flex title-font font-medium items-center justify-center sm:justify-start text-white mb-4 sm:mb-0"
+            href="#"
+          >
+            <div className="w-10 h-10 bg-white rounded-full">
+              <Image
                 src="/images/techlogo.png"
                 alt="Tech Logo"
-                className="object-cover w-full h-full rounded-full"
+                width={40}
+                height={40}
+                className="rounded-full"
               />
             </div>
             <span className="ml-3 text-xl">FutureTech Blog</span>
@@ -24,7 +30,7 @@ const Footer = () => {
 
           {/* Social Icons */}
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-            <a className="text-white">
+            <a href="#" className="text-white" aria-label="Facebook">
               <svg
                 fill="currentColor"
                 strokeLinecap="round"
@@ -36,7 +42,7 @@ const Footer = () => {
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
               </svg>
             </a>
-            <a className="ml-3 text-white">
+            <a href="#" className="ml-3 text-white" aria-label="Twitter">
               <svg
                 fill="currentColor"
                 strokeLinecap="round"
@@ -48,7 +54,7 @@ const Footer = () => {
                 <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
               </svg>
             </a>
-            <a className="ml-3 text-white">
+            <a href="#" className="ml-3 text-white" aria-label="Instagram">
               <svg
                 fill="none"
                 stroke="currentColor"
@@ -62,7 +68,7 @@ const Footer = () => {
                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" />
               </svg>
             </a>
-            <a className="ml-3 text-white">
+            <a href="#" className="ml-3 text-white" aria-label="LinkedIn">
               <svg
                 fill="currentColor"
                 stroke="currentColor"

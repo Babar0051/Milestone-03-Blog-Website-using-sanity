@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { client } from '@/sanity/lib/client';
-import { Key, ReactElement, JSXElementConstructor, ReactNode, AwaitedReactNode, ReactPortal } from "react";
 
 export default async function Home() {
   // Fetch the latest 3 blog posts from Sanity CMS
