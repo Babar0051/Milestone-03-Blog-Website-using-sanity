@@ -2,10 +2,19 @@
 
 import ClientSideContent from './ClientSideContent'; // Import the client component
 
+// Define the expected type for `params`
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
 // Server Component
-const BlogPost = async ({ params }: { params: { slug: string } }) => {
+const BlogPost = async ({ params }: PageProps) => {
+  const { slug } = params;
+
   // Fetch data on the server
-  const data = await fetchData(params.slug); 
+  const data = await fetchData(slug);
 
   // Pass the fetched data to the client component
   return <ClientSideContent data={data} />;
