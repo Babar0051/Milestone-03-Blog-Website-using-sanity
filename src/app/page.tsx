@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image"; // Import the Next.js Image component
 import { client } from '@/sanity/lib/client';
 
 export default async function Home() {
@@ -16,10 +17,13 @@ export default async function Home() {
     <div>
       <section className="text-gray-600 body-font">
         <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-          <img
+          <Image
             className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
             alt="hero"
             src="/images/ftc.png"
+            width={400} // Provide width for the image
+            height={300} // Provide height for the image
+            priority // Load the image with high priority
           />
           <div className="text-center lg:w-2/3 w-full">
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
@@ -45,10 +49,12 @@ export default async function Home() {
           {/* Loop through the blogs */}
           {blogs.map((blog: any) => (
             <div key={blog.slug} className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <img
+              <Image
                 src={blog.imageUrl}
                 alt={blog.heading}
                 className="w-full h-48 object-cover"
+                width={400} // Adjust dimensions as per your design
+                height={300}
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-800">{blog.heading}</h3>
