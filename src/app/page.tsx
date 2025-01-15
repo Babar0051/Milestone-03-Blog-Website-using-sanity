@@ -2,9 +2,16 @@ import Link from "next/link";
 import Image from "next/image"; // Import the Next.js Image component
 import { client } from '@/sanity/lib/client';
 
+type Blog = {
+  heading: string;
+  description: string;
+  slug: string;
+  imageUrl: string;
+};
+
 export default async function Home() {
   // Fetch the latest 3 blog posts from Sanity CMS
-  const blogs = await client.fetch(`
+  const blogs: Blog[] = await client.fetch(` 
     *[_type == "blog"] | order(_createdAt desc)[0..2] {
       heading,
       description,
@@ -47,7 +54,7 @@ export default async function Home() {
         </div>
         <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {/* Loop through the blogs */}
-          {blogs.map((blog: any) => (
+          {blogs.map((blog) => (
             <div key={blog.slug} className="bg-white shadow-lg rounded-lg overflow-hidden">
               <Image
                 src={blog.imageUrl}
