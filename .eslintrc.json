@@ -15,18 +15,17 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    // Customize ESLint rules as needed
-    "semi": ["error", "always"], // Enforce semicolons
-    "quotes": ["error", "single"], // Allow single quotes
-    "@typescript-eslint/no-unused-vars": ["warn"], // Warn about unused variables
-    "react/react-in-jsx-scope": "off", // Disable React in scope for Next.js
-    "no-console": "warn" // Warn on console usage
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "react/react-in-jsx-scope": "off",
+    "no-console": "warn"
   },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
       "rules": {
-        "@typescript-eslint/explicit-module-boundary-types": "off" // Disable explicit return type rule for TS
+        "@typescript-eslint/explicit-module-boundary-types": "off"
       }
     }
   ]
