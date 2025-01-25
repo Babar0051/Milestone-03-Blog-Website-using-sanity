@@ -1,12 +1,5 @@
 import ClientSideContent from "./ClientSideContent"; // Import the client component
 
-// Define the type for `params`
-interface PageProps {
-  params: {
-    slug: string; // Represents the dynamic slug
-  };
-}
-
 // Define the type for the data returned by fetchData
 interface BlogPostData {
   title: string;
@@ -27,8 +20,13 @@ const fetchData = async (slug: string): Promise<BlogPostData> => {
 const BlogPost = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params; // Extract slug from params
 
+  // Ensure params is synchronous and properly typed
+  if (!slug) {
+    throw new Error("Slug is required");
+  }
+
   // Fetch data on the server
-  const data = await fetchData(slug); // Use fetchData with correct types
+  const data = await fetchData(slug);
 
   // Pass the fetched data to the client component
   return <ClientSideContent data={data} />;
