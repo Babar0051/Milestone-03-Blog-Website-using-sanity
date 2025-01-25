@@ -1,13 +1,12 @@
-import ClientSideContent from "./ClientSideContent"; // Import the client component
-
-// Define the type for the data returned by fetchData
+// Import necessary modules and components
+import ClientSideContent from "./ClientSideContent";
 interface BlogPostData {
   title: string;
   content: string;
   image: string;
 }
 
-// Update fetchData to return the correct type
+// Function to simulate fetching data for the blog post
 const fetchData = async (slug: string): Promise<BlogPostData> => {
   return {
     title: `Post: ${slug}`, // Replace with actual API data
@@ -16,19 +15,24 @@ const fetchData = async (slug: string): Promise<BlogPostData> => {
   };
 };
 
-// Server Component
-const BlogPost = async ({ params }: { params: { slug: string } }) => {
-  const { slug } = params; // Extract slug from params
+// Define the type for the params object
+interface BlogPostParams {
+  slug: string;
+}
 
-  // Ensure params is synchronous and properly typed
+// Server component
+const BlogPost = async ({ params }: { params: BlogPostParams }) => {
+  const { slug } = params;
+
+  // Validate the slug
   if (!slug) {
     throw new Error("Slug is required");
   }
 
-  // Fetch data on the server
+  // Fetch the blog post data
   const data = await fetchData(slug);
 
-  // Pass the fetched data to the client component
+  // Render the client-side component with the fetched data
   return <ClientSideContent data={data} />;
 };
 
