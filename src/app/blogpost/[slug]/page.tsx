@@ -1,5 +1,3 @@
-// src/app/blogpost/[slug]/page.tsx (Server Component)
-
 import ClientSideContent from "./ClientSideContent"; // Import the client component
 
 // Define the type for `params`
@@ -26,7 +24,7 @@ const fetchData = async (slug: string): Promise<BlogPostData> => {
 };
 
 // Server Component
-const BlogPost = async ({ params }: PageProps) => {
+const BlogPost = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params; // Extract slug from params
 
   // Fetch data on the server
