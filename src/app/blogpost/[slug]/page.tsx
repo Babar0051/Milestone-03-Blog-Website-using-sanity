@@ -1,6 +1,6 @@
 // src/app/blogpost/[slug]/page.tsx (Server Component)
 
-import ClientSideContent from './ClientSideContent'; // Import the client component
+import ClientSideContent from "./ClientSideContent"; // Import the client component
 
 // Define the type for `params`
 interface PageProps {

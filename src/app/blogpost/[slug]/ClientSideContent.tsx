@@ -1,9 +1,9 @@
 // src/app/blogpost/[slug]/ClientSideContent.tsx (Client Component)
 
-'use client'; // Mark this as a client component
+"use client"; // Mark this as a client component
 
-import React from 'react';
-import Image from 'next/image'; // Import the Next.js Image component
+import React from "react";
+import Image from "next/image"; // Import the Next.js Image component
 
 type Props = {
   data: {
