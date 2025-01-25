@@ -17,7 +17,7 @@
   "rules": {
     // Customize ESLint rules as needed
     "semi": ["error", "always"], // Enforce semicolons
-    "quotes": ["error", "double"], // Enforce double quotes
+    "quotes": ["error", "single"], // Allow single quotes
     "@typescript-eslint/no-unused-vars": ["warn"], // Warn about unused variables
     "react/react-in-jsx-scope": "off", // Disable React in scope for Next.js
     "no-console": "warn" // Warn on console usage
