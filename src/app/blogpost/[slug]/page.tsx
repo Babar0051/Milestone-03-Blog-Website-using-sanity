@@ -1,5 +1,6 @@
 // Import necessary modules and components
 import ClientSideContent from "./ClientSideContent";
+
 interface BlogPostData {
   title: string;
   content: string;
@@ -15,13 +16,17 @@ const fetchData = async (slug: string): Promise<BlogPostData> => {
   };
 };
 
-// Define the type for the params object
+// Define the type for dynamic route parameters
 interface BlogPostParams {
   slug: string;
 }
 
 // Server component
-const BlogPost = async ({ params }: { params: BlogPostParams }) => {
+const BlogPost = async ({
+  params,
+}: {
+  params: { slug: string }; // Use direct typing for params
+}) => {
   const { slug } = params;
 
   // Validate the slug
