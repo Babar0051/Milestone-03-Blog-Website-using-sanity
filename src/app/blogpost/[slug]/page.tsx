@@ -17,16 +17,16 @@ const fetchData = async (slug: string): Promise<BlogPostData> => {
 };
 
 // Define the type for dynamic route parameters
-interface BlogPostParams {
+type BlogPostParams = {
   slug: string;
-}
+};
 
 // Server component
 const BlogPost = async ({
   params,
-}: {
-  params: { slug: string }; // Use direct typing for params
-}) => {
+}: Awaited<{
+  params: BlogPostParams;
+}>) => {
   const { slug } = params;
 
   // Validate the slug
