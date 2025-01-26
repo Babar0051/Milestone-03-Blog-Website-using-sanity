@@ -22,11 +22,7 @@ type BlogPostParams = {
 };
 
 // Server component
-const BlogPost = async ({
-  params,
-}: Awaited<{
-  params: BlogPostParams;
-}>) => {
+const BlogPost = async ({ params }: { params: BlogPostParams }) => {
   const { slug } = params;
 
   // Validate the slug
