@@ -1,4 +1,3 @@
-// Import necessary modules and components
 import ClientSideContent from "./ClientSideContent";
 
 interface BlogPostData {
