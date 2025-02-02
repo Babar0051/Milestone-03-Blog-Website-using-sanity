@@ -1,5 +1,6 @@
 import ClientSideContent from "./ClientSideContent";
 
+// Define the type for fetched blog post data
 interface BlogPostData {
   title: string;
   content: string;
@@ -33,7 +34,11 @@ const BlogPost = async ({ params }: { params: BlogPostParams }) => {
   const data = await fetchData(slug);
 
   // Render the client-side component with the fetched data
-  return <ClientSideContent data={data} />;
+  return (
+    <div className="container mx-auto p-6">
+      <ClientSideContent data={data} />
+    </div>
+  );
 };
 
 export default BlogPost;
